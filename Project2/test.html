@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Project API</title>
+</head>
+<body>
+
+    <h1>Test POST API</h1>
+
+    <button onclick="addProject()">Add Project</button>
+
+    <pre id="result"></pre>
+
+    <script>
+        async function addProject() {
+
+            const project = {
+                name: "Spam Detection System",
+                technology: "Python, NLP"
+            };
+
+            const response = await fetch(
+                "http://127.0.0.1:5000/api/projects",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(project)
+                }
+            );
+
+            const data = await response.json();
+
+            document.getElementById("result").textContent =
+                JSON.stringify(data, null, 2);
+        }
+    </script>
+
+</body>
+</html>
