@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Project Manager</h1>
+        <p class = "subtitle">
+            Full-stack project management application
+        </p>
+
+        <form id="projectForm">
+
+            <input
+                type="text"
+                id="projectName"
+                placeholder="Project Name"
+                required
+            >
+
+            <input
+                type="text"
+                id="technology"
+                placeholder="Technology"
+                required
+            >
+
+            <button type="submit">Add Project</button>
+
+        </form>
+
+        <p id="message"></p>
+
+        <h2>Projects</h2>
+
+        <div id="projectList"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
