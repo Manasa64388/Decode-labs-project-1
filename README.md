@@ -156,3 +156,20 @@ Project 4
 Full-Stack Integration
         ↓
 Frontend ↔ REST API ↔ SQLite
+```
+
+---
+
+**About** 
+
+These projects were developed as part of my DecodeLabs Full Stack Development Internship, with each project building on concepts introduced in the previous stage.
+
+The overall progression covers frontend development, backend development, REST APIs, database integration, CRUD operations, and full-stack application development.
+
+## Author
+Manasa N S
+
+Computer Science Engineering Student
+Interested in Backend Development and Software Engineering.
+
+GitHub: Manasa64388
