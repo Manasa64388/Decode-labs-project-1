@@ -6,32 +6,6 @@ const technology = document.getElementById("technology");
 const projectList = document.getElementById("projectList");
 const message = document.getElementById("message");
 
-
-// GET — Load all projects
-async function loadProjects() {
-
-    try {
-
-        const response = await fetch(API_URL);
-
-        if (!response.ok) {
-            throw new Error(`HTTP Error: ${response.status}`);
-        }
-
-        const projects = await response.json();
-
-        displayProjects(projects);
-
-    } catch (error) {
-
-        message.textContent = "Failed to load projects.";
-
-        console.error(error);
-
-    }
-}
-
-
 // Display projects in the DOM
 function displayProjects(projects) {
 
