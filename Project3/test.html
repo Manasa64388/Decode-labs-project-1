@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3 API Test</title>
+</head>
+
+<body>
+
+    <h1>Project 3 API</h1>
+    <input type = "number" id = "projectId" placeholder = "Enter Project ID">
+    <button onclick="addProject()">Add Project</button>
+    <button onclick="updateProject()">Update Project</button>
+    <button onclick="deleteProject()">Delete Project</button>
+    <pre id="result"></pre>
+
+    <script>
+
+        async function addProject() {
+            const response = await fetch("http://127.0.0.1:5000/api/projects", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: "Spam Detection System",
+                    technology: "Python, NLP"
+                })
+            });
+
+            const data = await response.json();
+
+            document.getElementById("result").textContent =
+                JSON.stringify(data, null, 2);
+        }
+
+
+        async function updateProject() {
+
+            const projectId = document.getElementById("projectId").value;
+
+            if (!projectId) {
+                document.getElementById("result").textContent =
+                    "Please enter a Project ID";
+                return;
+            }
+
+            const response = await fetch(
+                `http://127.0.0.1:5000/api/projects/${projectId}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: "Advanced Spam Detection System",
+                        technology: "Python, NLP, Flask"
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            document.getElementById("result").textContent =
+                JSON.stringify(data, null, 2);
+        }
+
+        async function deleteProject() {
+            const projectId = document.getElementById("projectId").value;
+
+            if (!projectId) {
+                document.getElementById("result").textContent =
+                    "Please enter a Project ID";
+                return;
+            }
+
+            const response = await fetch(
+                `http://127.0.0.1:5000/api/projects/${projectId}`,
+                {
+                    method: "DELETE"
+                }
+            );
+
+            const data = await response.json();
+
+            document.getElementById("result").textContent =
+                JSON.stringify(data, null, 2);
+        }
+
+    </script>
+
+</body>
+</html>
